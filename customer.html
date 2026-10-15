@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0756c9">
+  <title>Customer Website | Aapki S Service</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="index.html"><span class="brand-mark">⚙</span><span><b>Aapki S Service</b><small>Electrical & Motor Repair</small></span></a>
+  <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">☰</button>
+  <nav id="mainNav"><a href="#services">Services</a><a href="#how">How it works</a><a href="#myBookings">My bookings</a><button class="nav-login" id="openLogin">Login / Register</button><button class="nav-login hidden" id="logoutBtn">Logout</button></nav>
+</header>
+<main>
+  <section class="hero">
+    <div class="hero-copy">
+      <span class="eyebrow">FAST SERVICE · GENUINE WORK · FAIR PRICE</span>
+      <h1>Electrical & Motor Repair Services at Your Doorstep</h1>
+      <p>Book trusted help for motor repair, fan winding, house wiring and electrical faults.</p>
+      <a class="primary-btn" href="#services">Book a service <span>→</span></a>
+      <div class="hero-points"><span>✓ Skilled technicians</span><span>✓ Price approval before work</span></div>
+    </div>
+    <div class="hero-art" aria-label="Electrical motor and repair tools illustration">
+      <div class="art-circle">⚙</div><div class="art-card"><span>⚡</span><b>Reliable repairs</b><small>Home electrical solutions</small></div>
+    </div>
+  </section>
+  <section class="section" id="services">
+    <div class="section-heading"><div><span class="eyebrow">WHAT WE DO</span><h2>Our Services</h2></div><p>Select a service to start your booking.</p></div>
+    <div class="service-grid">
+      <button class="service-card" data-service="Motor Repair & Winding"><span class="service-icon">⚙️</span><b>Motor Repair & Winding</b><small>Motor servicing and winding</small></button>
+      <button class="service-card" data-service="Farata Fan Winding"><span class="service-icon">🌀</span><b>Farata Fan Winding</b><small>Fan repair and winding</small></button>
+      <button class="service-card" data-service="Ceiling Fan Winding"><span class="service-icon">🪭</span><b>Ceiling Fan Winding</b><small>Ceiling fan repair</small></button>
+      <button class="service-card" data-service="House Wiring & Fault Solution"><span class="service-icon">🏠</span><b>House Wiring & Fault Solution</b><small>Wiring and fault finding</small></button>
+      <button class="service-card" data-service="Wall Fitting & Installation"><span class="service-icon">🔌</span><b>Wall Fitting & Installation</b><small>Switches, sockets and fittings</small></button>
+      <button class="service-card" data-service="All Electrical Works"><span class="service-icon">⚡</span><b>All Electrical Works</b><small>General electrical jobs</small></button>
+    </div>
+  </section>
+  <section class="booking-section" id="book">
+    <div class="booking-intro"><span class="eyebrow">ONLINE BOOKING</span><h2>Book your service</h2><p>Sign in first, then tell us what needs repair. The owner or technician will contact you with the proposed price.</p><div class="booking-note">🔒 Your booking details are visible only to you and authorized staff.</div></div>
+    <form id="bookingForm" class="panel form-grid">
+      <label>Service<select id="service" required><option value="">Choose service</option><option>Motor Repair & Winding</option><option>Farata Fan Winding</option><option>Ceiling Fan Winding</option><option>House Wiring & Fault Solution</option><option>Wall Fitting & Installation</option><option>All Electrical Works</option></select></label>
+      <label>Customer name<input id="customerName" required maxlength="80" placeholder="Your full name"></label>
+      <label>Mobile number<input id="phone" required inputmode="tel" pattern="[0-9+ ()-]{8,18}" placeholder="Your phone number"></label>
+      <label>Address / village<input id="address" required maxlength="250" placeholder="House, village, tehsil"></label>
+      <div class="full location-box"><div><b>Service location (GPS)</b><small>Allow location access so the technician can find your service address.</small></div><button class="outline-btn" type="button" id="getLocationBtn">📍 Use my current location</button><p id="locationMessage" class="form-message full" role="status">Location not added yet. You can still type your address above.</p><input type="hidden" id="locationLat"><input type="hidden" id="locationLng"><input type="hidden" id="locationAccuracy"></div>
+      <label>Preferred date<input id="preferredDate" type="date" required></label>
+      <label>Preferred time<select id="preferredTime" required><option value="">Choose time</option><option>Morning (8 AM–12 PM)</option><option>Afternoon (12 PM–4 PM)</option><option>Evening (4 PM–7 PM)</option></select></label>
+      <label class="full">Problem details<textarea id="details" rows="3" maxlength="1000" placeholder="Describe the problem"></textarea></label>
+      <button class="primary-btn full" type="submit">Submit booking <span>→</span></button>
+      <p id="bookingMessage" class="form-message full" role="status"></p>
+    </form>
+  </section>
+  <section class="section" id="myBookings">
+    <div class="section-heading"><div><span class="eyebrow">YOUR REQUESTS</span><h2>My bookings</h2></div><button class="outline-btn" id="refreshBookings">Refresh</button></div>
+    <div id="customerBookings" class="booking-list"><div class="empty-state">Log in to view your bookings.</div></div>
+  </section>
+  <section class="section how-section" id="how"><span class="eyebrow">SIMPLE PROCESS</span><h2>How it works</h2><div class="steps"><div><span>01</span><b>Book online</b><p>Choose the service and share the problem.</p></div><div><span>02</span><b>Approve the price</b><p>Review the proposed repair price before work starts.</p></div><div><span>03</span><b>Track progress</b><p>Follow assigned, working and completed status.</p></div></div></section>
+</main>
+<footer><a class="brand" href="#"><span class="brand-mark">⚙</span><span><b>Aapki S Service</b><small>Electrical & Motor Repair</small></span></a><p>Reliable service · Skilled technicians · Fair pricing</p><small>© <span id="year"></span> Aapki S Service. All rights reserved.</small></footer>
+
+<div class="modal-backdrop hidden" id="authModal">
+  <div class="modal panel"><button class="close-modal" id="closeLogin" aria-label="Close">×</button><div class="modal-brand">⚙ Aapki S Service</div><h2 id="authTitle">Welcome back!</h2><p id="authSubtitle">Log in to book service and track requests.</p>
+    <div class="auth-tabs"><button class="active" id="loginTab">Login</button><button id="registerTab">Create account</button></div>
+    <form id="authForm"><label id="authNameWrap" class="hidden">Full name<input id="authName" autocomplete="name" maxlength="80" placeholder="Your full name"></label><label>Mobile number or email<input id="authEmail" required autocomplete="username" placeholder="Email address" type="email"></label><label>Password<input id="authPassword" required autocomplete="current-password" minlength="6" type="password" placeholder="At least 6 characters"></label><button class="primary-btn full" id="authSubmit" type="submit">Login</button><p class="form-message" id="authMessage" role="status"></p></form>
+    <small class="muted">Use a valid email address for Firebase Authentication. Staff accounts must be authorized by the owner.</small>
+  </div>
+</div>
+<div class="toast hidden" id="toast" role="status"></div>
+<script type="module" src="app.js"></script>
+</body>
+</html>

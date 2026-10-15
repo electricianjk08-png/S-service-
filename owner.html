@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#06285b">
+  <title>Owner Portal | Aapki S Service</title><link rel="stylesheet" href="style.css">
+</head>
+<body class="staff-body">
+<header class="topbar staff-topbar"><a class="brand" href="index.html"><span class="brand-mark">⚙</span><span><b>Aapki S Service</b><small>Owner Portal</small></span></a><nav><a href="index.html">Customer website</a><button class="nav-login" id="staffLogout" class="hidden">Logout</button></nav></header>
+<main class="staff-main">
+  <section class="staff-welcome"><div><span class="eyebrow">PRIVATE STAFF ACCESS</span><h1>Owner service management</h1><p>Manage all customer bookings, authorize technicians, set service charges and monitor work status.</p></div><div class="staff-avatar">♙</div></section>
+  <section id="staffLoginPanel" class="panel staff-login-panel"><div class="staff-lock">🔐</div><h2>Staff login</h2><p>Only owner-approved owner or technician accounts can enter this portal.</p><form id="staffLoginForm"><label>Email<input id="staffEmail" type="email" required autocomplete="username" placeholder="Staff email"></label><label>Password<input id="staffPassword" type="password" required minlength="6" autocomplete="current-password" placeholder="Password"></label><button class="primary-btn full" type="submit">Login to portal</button><p id="staffLoginMessage" class="form-message" role="status"></p></form><small class="muted">First owner setup: create a user in Firebase Authentication, then add a matching <code>users/{UID}</code> document in Firestore with <code>role: "owner"</code>. Do this only for your own trusted account.</small></section>
+  <div id="staffApp" class="hidden">
+    <div class="staff-userbar"><div><span class="status-dot"></span><span id="staffIdentity">Signed in</span></div><span id="staffRole" class="role-pill">Staff</span></div>
+    <section class="stats-grid"><div class="stat-card"><span>Total bookings</span><b id="statTotal">0</b><small>All requests</small></div><div class="stat-card"><span>Pending</span><b id="statPending">0</b><small>Awaiting action</small></div><div class="stat-card"><span>Working</span><b id="statWorking">0</b><small>In progress</small></div><div class="stat-card"><span>Completed</span><b id="statCompleted">0</b><small>Finished jobs</small></div></section>
+    <section class="panel staff-panel"><div class="section-heading"><div><span class="eyebrow">CUSTOMER REQUESTS</span><h2>Bookings</h2></div><button id="staffRefresh" class="outline-btn">Refresh</button></div><div id="staffBookings" class="booking-list"><div class="empty-state">Loading bookings…</div></div></section>
+    <section id="ownerTools" class="panel staff-panel hidden"><div class="section-heading"><div><span class="eyebrow">OWNER CONTROLS</span><h2>Manage technicians</h2></div></div><p class="muted">Create the technician's Firebase Authentication account first. Then enter that account's exact UID and email here to authorize portal access.</p>
+      <form id="technicianForm" class="form-grid"><label>Technician UID<input id="techUid" required placeholder="Firebase Authentication UID"></label><label>Technician email<input id="techEmail" type="email" required placeholder="technician@example.com"></label><label>Technician name<input id="techName" required maxlength="80" placeholder="Full name"></label><button class="primary-btn" type="submit">Authorize technician</button><p id="techMessage" class="form-message full" role="status"></p></form>
+      <h3>Fixed service charges</h3><p class="muted">These are suggested starting charges. The actual price is proposed per booking and needs customer approval.</p><form id="chargesForm" class="form-grid"><label>Motor repair & winding (₹)<input type="number" min="0" id="chargeMotor" required></label><label>Fan winding (₹)<input type="number" min="0" id="chargeFan" required></label><label>House wiring / fault (₹)<input type="number" min="0" id="chargeWiring" required></label><button class="primary-btn" type="submit">Save service charges</button><p id="chargesMessage" class="form-message full" role="status"></p></form>
+    </section>
+  </div>
+</main>
+<footer><a class="brand" href="index.html"><span class="brand-mark">⚙</span><span><b>Aapki S Service</b><small>Electrical & Motor Repair</small></span></a><small>Private staff portal · © <span id="year"></span></small></footer>
+<div class="toast hidden" id="toast" role="status"></div><script type="module" src="app.js"></script>
+</body></html>

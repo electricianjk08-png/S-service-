@@ -5,12 +5,13 @@ import { getAuth } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-aut
 import { getFirestore } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: "PASTE_YOUR_FIREBASE_API_KEY",
-  authDomain: "PASTE_YOUR_PROJECT_ID.firebaseapp.com",
-  projectId: "PASTE_YOUR_PROJECT_ID",
-  storageBucket: "PASTE_YOUR_PROJECT_ID.appspot.com",
-  messagingSenderId: "PASTE_YOUR_MESSAGING_SENDER_ID",
-  appId: "PASTE_YOUR_FIREBASE_APP_ID"
+  apiKey: "AIzaSyDb1krUYmijVF0WPUbd7m7C8cxxAn1x_Gk",
+  authDomain: "fir-service-f9824.firebaseapp.com",
+  projectId: "fir-service-f9824",
+  storageBucket: "fir-service-f9824.firebasestorage.app",
+  messagingSenderId: "565734633427",
+  appId: "1:565734633427:web:fdde61bbdc60690188c926",
+  measurementId: "G-R4VNDQD4YJ"
 };
 
 const app = initializeApp(firebaseConfig);
